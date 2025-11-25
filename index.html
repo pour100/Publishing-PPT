@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grindeks Korea – Market Entry Blueprint</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --white: #ffffff;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --blue-600: #2563eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--gray-900);
+      line-height: 1.4;
+    }
+    .slides {
+      min-height: 100vh;
+    }
+    .slide-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+    }
+    .slide {
+      width: 90vw;
+      max-width: 1100px;
+      aspect-ratio: 16 / 9;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+      padding: 40px 56px;
+      display: flex;
+      flex-direction: column;
+    }
+    header.slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .top-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+    .slide-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--gray-400);
+    }
+    .header-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--blue-600);
+    }
+    .header-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gray-200);
+    }
+    .slide-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      overflow: hidden;
+      font-size: 12px;
+      color: var(--gray-700);
+    }
+    footer.slide-footer {
+      padding-top: 14px;
+      margin-top: 16px;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+    .tracker-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tracker-bars {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .bar-main {
+      width: 40px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--blue-600);
+    }
+    .bar-sub {
+      width: 24px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--gray-300);
+    }
+    .bar-sub.fade {
+      background: var(--gray-200);
+    }
+    .tracker-label {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gray-400);
+    }
+    .page-no {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Grid helpers */
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .col-2-3 {
+      grid-template-columns: 2fr 3fr;
+      gap: 32px;
+    }
+    .col-16-14 {
+      grid-template-columns: 1.6fr 1.4fr;
+      gap: 28px;
+    }
+    .card {
+      border: 1px solid var(--gray-200);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    .card-soft {
+      border-radius: 18px;
+      padding: 16px 18px;
+      border: 1px solid var(--gray-200);
+      background: #f9fafb;
+    }
+    .card-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--blue-600);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 4px;
+    }
+    .card-subtitle {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
+    ul.bullets {
+      list-style: disc;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+    ul.bullets li { margin-bottom: 3px; }
+
+    .text-sm { font-size: 13px; }
+    .mb-6 { margin-bottom: 18px; }
+
+    @media (max-width: 900px) {
+      .slide {
+        padding: 28px 20px;
+      }
+      .col-2-3,
+      .col-16-14,
+      .cols-3,
+      .cols-2 {
+        grid-template-columns: 1fr;
+      }
+      .slide {
+        aspect-ratio: auto;
+        min-height: 520px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slides">
+
+    <!-- PAGE 1 – Executive Overview -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">1 · Executive Overview</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid col-2-3">
+            <div style="display:flex;flex-direction:column;gap:16px;justify-content:center;">
+              <h2 class="text-sm" style="font-weight:600;color:var(--gray-900);">
+                Grindeks Korea – Strategic Market Entry Blueprint
+              </h2>
+              <p>
+                A five-year, Korea-specific strategy to turn Grindeks from an
+                API-centric supplier into a <strong>specialty partner</strong> with a
+                differentiated oncology &amp; API portfolio, a lean local platform,
+                and an Asia-facing growth hub.
+              </p>
+              <div class="grid cols-2">
+                <div class="card">
+                  <div class="card-subtitle">Objective</div>
+                  <p>Achieve a sustainable, de-risked entry with a clear path to break-even.</p>
+                </div>
+                <div class="card">
+                  <div class="card-subtitle">Time Horizon</div>
+                  <p>5-year roadmap covering portfolio, organization, and execution milestones.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;">
+              <div class="card-soft" style="width:100%;display:flex;flex-direction:column;gap:10px;">
+                <div class="card-title">Strategic Question</div>
+                <p class="text-sm">
+                  <strong style="color:var(--blue-600);">
+                    How can Grindeks enter Korea profitably
+                  </strong>
+                  in a generic-saturated, API-dependent market without deploying a
+                  large sales force or overspending on undifferentiated assets?
+                </p>
+                <div class="grid cols-3" style="margin-top:4px;">
+                  <div>
+                    <div class="card-subtitle">Scope</div>
+                    <p>API, oncology FPP, and B2B partnerships with local pharma.</p>
+                  </div>
+                  <div>
+                    <div class="card-subtitle">Lens</div>
+                    <p>Market structure, RA, pricing, and institutional behavior.</p>
+                  </div>
+                  <div>
+                    <div class="card-subtitle">Output</div>
+                    <p>Portfolio, org design, P&amp;L trajectory, and action plan.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">1 · Executive Overview</span>
+          </div>
+          <span class="page-no">01 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 2 – Market Context -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">2 · Korea Market Context</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid cols-3">
+            <div class="card">
+              <div class="card-title">Macro &amp; Demographics</div>
+              <p>
+                12<sup>th</sup>-largest global pharma market (~$15.5B) with ~6.5% CAGR,
+                driven by an aging population and chronic disease burden.
+              </p>
+              <ul class="bullets">
+                <li>Rapidly aging society; oncology &amp; CV deaths dominate.</li>
+                <li>Single-payer NHIS increases pressure on drug prices.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Market Structure</div>
+              <p>
+                Strong local players: ~60% of ETC volume held by Korean companies,
+                supported by dense hospital &amp; wholesaler networks.
+              </p>
+              <ul class="bullets">
+                <li>Generic erosion across major classes incl. oncology and CV.</li>
+                <li>Fragmented, relationship-based purchasing vs. EU-style tenders.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Regulatory &amp; Compliance</div>
+              <p>
+                MFDS imposes strict NDA, DMF, and GMP requirements; HIRA/NHIS add HTA
+                and pricing steps.
+              </p>
+              <ul class="bullets">
+                <li>Rebate &amp; promotion tightly regulated (“K-Sunshine Act”).</li>
+                <li>Hospital formularies controlled by multi-disciplinary committees.</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">2 · Korea Market Context</span>
+          </div>
+          <span class="page-no">02 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 3 – Problem Definition -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">3 · Problem Definition</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid col-16-14">
+            <div>
+              <div class="card-title">Structural Barriers</div>
+              <div class="card">
+                <div class="card-subtitle">Generic Saturation</div>
+                <p>
+                  20+ local companies in key classes; intense price competition and
+                  limited room for another undifferentiated brand.
+                </p>
+              </div>
+              <div class="card" style="margin-top:10px;">
+                <div class="card-subtitle">API Switching Cost</div>
+                <p>
+                  Hospitals &amp; manufacturers face 6+ months of administrative work to
+                  change API sources, creating strong inertia.
+                </p>
+              </div>
+              <div class="card" style="margin-top:10px;">
+                <div class="card-subtitle">Informal Competition</div>
+                <p>
+                  Despite regulation, non-price relationship levers still matter,
+                  disadvantaging an unestablished foreign entrant.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="card-title">Grindeks Starting Point</div>
+              <div class="card">
+                <div class="card-subtitle">Portfolio Reality</div>
+                <p>
+                  Current FPP pipeline is largely commodity generics; oral forms
+                  require costly local BE studies (USD 200–300k).
+                </p>
+              </div>
+              <div class="card" style="margin-top:10px;">
+                <div class="card-subtitle">Operating Constraints</div>
+                <p>
+                  No local brand equity, no historic client base, and a resource-light
+                  model which must avoid large fixed-cost commitments.
+                </p>
+              </div>
+              <div class="card-soft" style="margin-top:10px;">
+                <div class="card-title" style="color:var(--gray-500);">
+                  Core Problem Statement
+                </div>
+                <p>
+                  An <strong>API-driven, generic-only approach</strong> will not generate
+                  sufficient scale or profitability to justify a Korean affiliate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">3 · Problem Definition</span>
+          </div>
+          <span class="page-no">03 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 4 – SWOT -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">4 · SWOT Snapshot</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid cols-2">
+            <div class="card">
+              <div class="card-title">Strengths</div>
+              <ul class="bullets">
+                <li>EU-origin manufacturing; EMA-GMP track record.</li>
+                <li>Capability in both APIs and finished oncology products.</li>
+                <li>Experience in orphan &amp; niche oncology segments.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Weaknesses</div>
+              <ul class="bullets">
+                <li>Low brand awareness; no on-the-ground relationships.</li>
+                <li>Portfolio skewed to me-too generics with price-only value.</li>
+                <li>Limited Korean RA experience; reliance on a single GM.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Opportunities</div>
+              <ul class="bullets">
+                <li>High API import dependency, especially in oncology &amp; CNS.</li>
+                <li>Demand for alternative EU-quality sources for key APIs.</li>
+                <li>Room for niche, high-barrier oncology products (Trabectedin, Treosulfan).</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Threats</div>
+              <ul class="bullets">
+                <li>Local competitors with deep hospital relationships.</li>
+                <li>MFDS review timelines &amp; regulatory uncertainty.</li>
+                <li>Past exits of global generics from the Korean market.</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">4 · SWOT Snapshot</span>
+          </div>
+          <span class="page-no">04 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 5 – Strategic Pillars -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">5 · Strategic Pillars</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid cols-3">
+            <div class="card">
+              <div class="card-title">Pillar 1 – Local Portfolio</div>
+              <p>
+                Move beyond commodity generics with a curated Korean portfolio
+                focusing on <strong>high-barrier APIs</strong> and niche oncology FPPs.
+              </p>
+              <ul class="bullets">
+                <li>Prioritize APIs with limited DMF competition and proven demand.</li>
+                <li>License Treosulfan / Trabectedin-type assets.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Pillar 2 – Lean Platform</div>
+              <p>
+                Keep the entity structurally light, leveraging partners for RA,
+                CSO, and back office to protect downside.
+              </p>
+              <ul class="bullets">
+                <li>Externalize RA &amp; accounting in Years 1–2.</li>
+                <li>Scale people only as API &amp; Gx revenue matures.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Pillar 3 – Hands-on GM</div>
+              <p>
+                GM owns end-to-end build: portfolio, partnerships, RA navigation,
+                and P&amp;L.
+              </p>
+              <ul class="bullets">
+                <li>Direct relationships with top 20 local pharma.</li>
+                <li>Regional remit (Korea + Taiwan + SEA).</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">5 · Strategic Pillars</span>
+          </div>
+          <span class="page-no">05 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 6 – Portfolio Roadmap -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">6 · Portfolio Roadmap</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid col-16-14">
+            <div>
+              <div class="card-title">Priority 1 – High-Demand APIs</div>
+              <div class="card">
+                <ul class="bullets">
+                  <li>Topotecan / Vinorelbine – alternative EU sources requested.</li>
+                  <li>Eribulin – complex, multi-step API (high barrier).</li>
+                  <li>Tamoxifen / Cisplatin – essential oncology backbones.</li>
+                  <li>Carfilzomib – prepare for post-patent demand.</li>
+                </ul>
+              </div>
+              <div class="card-title" style="margin-top:10px;">
+                Priority 2 – Niche Oncology FPP
+              </div>
+              <div class="card">
+                <ul class="bullets">
+                  <li>Trabectedin – first generic opportunity; demand proven.</li>
+                  <li>Treosulfan – orphan conditioning agent, not yet in Korea.</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="card-title">Phasing by Year</div>
+              <div class="card">
+                <div class="card-subtitle">Years 1–2 – API foundation</div>
+                <ul class="bullets">
+                  <li>Secure DMF approvals and first B2B API contracts.</li>
+                  <li>Start RA work for Trabectedin / Treosulfan.</li>
+                </ul>
+                <hr style="border:none;border-top:1px solid var(--gray-200);margin:8px 0;" />
+                <div class="card-subtitle">Years 3–4 – Oncology build-out</div>
+                <ul class="bullets">
+                  <li>Launch first oncology FPP, expand CNS/other APIs.</li>
+                  <li>Deepen relationships with top hospital groups.</li>
+                </ul>
+                <hr style="border:none;border-top:1px solid var(--gray-200);margin:8px 0;" />
+                <div class="card-subtitle">Year 5+ – APAC platform</div>
+                <ul class="bullets">
+                  <li>Use Korea as regional node for Taiwan &amp; SEA business.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">6 · Portfolio Roadmap</span>
+          </div>
+          <span class="page-no">06 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 7 – Financial Outlook -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">7 · Financial Outlook</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid col-16-14">
+            <div class="card">
+              <div class="card-title">Revenue Evolution (Illustrative)</div>
+              <ul class="bullets">
+                <li>Year 1: ~<strong>$0.2M</strong> – initial API deals only.</li>
+                <li>Year 3: ~<strong>$3.2M</strong> – diversified APIs + first Gx/oncology.</li>
+                <li>Year 5: ~<strong>$14M</strong> – Treosulfan &amp; Trabectedin driving top line.</li>
+              </ul>
+              <p style="margin-top:6px;">
+                Mix shifts from in-house APIs to outsourced NCEs &amp; oncology FPP
+                over time, while APIs remain the entry product.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-title">Economics &amp; Risk</div>
+              <ul class="bullets">
+                <li>Lean fixed cost base delays need for large field force.</li>
+                <li>Capital focused on RA, DMF, and selected BE studies.</li>
+                <li>Key risks: MFDS timelines, licensing success, market access.</li>
+              </ul>
+              <hr style="border:none;border-top:1px solid var(--gray-200);margin:8px 0;" />
+              <div class="card-subtitle">Implication</div>
+              <p>
+                With disciplined portfolio choices and a lean org, break-even is
+                achievable within the planning horizon without outsized capital
+                commitments.
+              </p>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">7 · Financial Outlook</span>
+          </div>
+          <span class="page-no">07 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 8 – Org & Operating Model -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">8 · Org & Operating Model</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid cols-3">
+            <div class="card">
+              <div class="card-title">GM – Korea / APAC Node</div>
+              <p>
+                Single accountable owner for Korea P&amp;L, portfolio and partner
+                ecosystem, with dotted-line oversight for Taiwan / SEA.
+              </p>
+              <ul class="bullets">
+                <li>Drives BD with local pharma and wholesalers.</li>
+                <li>Chairs cross-functional planning with HQ.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Year 2 – API Manager</div>
+              <p>
+                Technical &amp; commercial bridge between Grindeks manufacturing sites
+                and Korean B2B clients.
+              </p>
+              <ul class="bullets">
+                <li>Manages DMF dossiers &amp; customer technical queries.</li>
+                <li>Supports pricing, tenders and supply assurance.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="card-title">Year 3 – RA Manager</div>
+              <p>
+                Internalizes key regulatory expertise while still using external
+                experts selectively.
+              </p>
+              <ul class="bullets">
+                <li>Owns NDA/ANDA interactions with MFDS.</li>
+                <li>Ensures compliance in promotional &amp; medical activities.</li>
+              </ul>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">8 · Org & Operating Model</span>
+          </div>
+          <span class="page-no">08 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 9 – 5-Year Action Plan -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">9 · 5-Year Action Plan</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="card">
+            <div class="grid cols-4">
+              <div>
+                <div class="card-title">Year 1</div>
+                <ul class="bullets">
+                  <li>Set up legal entity and partner-based RA / accounting.</li>
+                  <li>Prioritize APIs and initiate DMF submissions.</li>
+                  <li>Map top 30 local pharma &amp; wholesalers; begin outreach.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="card-title">Year 2</div>
+                <ul class="bullets">
+                  <li>Close first long-term API supply agreements.</li>
+                  <li>Advance Trabectedin / Treosulfan regulatory work.</li>
+                  <li>Hire API manager; formalize B2B visiting model.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="card-title">Years 3–4</div>
+                <ul class="bullets">
+                  <li>Launch first oncology FPP and expand API basket.</li>
+                  <li>Hire RA manager; deepen KOL &amp; hospital relations.</li>
+                  <li>Explore regional deals leveraging Korea platform.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="card-title">Year 5</div>
+                <ul class="bullets">
+                  <li>Stabilize portfolio economics &amp; optimize mix.</li>
+                  <li>Position Korea as APAC specialty &amp; API hub.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">9 · 5-Year Action Plan</span>
+          </div>
+          <span class="page-no">09 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+    <!-- PAGE 10 – Recommendation -->
+    <section class="slide-wrap">
+      <div class="slide">
+        <header class="slide-header">
+          <div>
+            <div class="top-label">Grindeks Korea</div>
+            <div class="slide-title">10 · Recommendation & Next Steps</div>
+          </div>
+          <div class="header-right">
+            <div class="header-pill">
+              <span class="header-dot"></span>
+              <span>Market Entry Blueprint</span>
+            </div>
+            <div class="header-line"></div>
+          </div>
+        </header>
+
+        <main class="slide-main">
+          <div class="grid col-16-14">
+            <div>
+              <div class="card-title">Strategic Answer</div>
+              <div class="card">
+                <p class="text-sm">
+                  Grindeks should pursue a <strong>selective, API-led entry</strong>
+                  anchored in high-barrier oncology assets, supported by a
+                  <strong> lean local platform</strong> and a hands-on GM with a
+                  regional mandate.
+                </p>
+              </div>
+              <div class="card-title" style="margin-top:10px;">Design Principles</div>
+              <ul class="bullets">
+                <li>Launch only where Grindeks can be structurally advantaged.</li>
+                <li>Protect downside via partner-based operations &amp; tight capex.</li>
+                <li>Use Korea learnings to inform broader APAC strategy.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="card-title">Next 0–6 Months</div>
+              <div class="card">
+                <ul class="bullets">
+                  <li>Confirm investment envelope and risk appetite with HQ.</li>
+                  <li>Lock target API and oncology asset list for Korea.</li>
+                  <li>Shortlist RA / accounting partners and start contracting.</li>
+                  <li>Define GM mandate, KPIs, and governance setup.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="slide-footer">
+          <div class="tracker-left">
+            <div class="tracker-bars">
+              <span class="bar-main"></span>
+              <span class="bar-sub"></span>
+              <span class="bar-sub fade"></span>
+            </div>
+            <span class="tracker-label">10 · Recommendation & Next Steps</span>
+          </div>
+          <span class="page-no">10 / 10</span>
+        </footer>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
